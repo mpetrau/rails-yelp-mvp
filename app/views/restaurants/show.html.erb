@@ -13,7 +13,10 @@
     <% end  %>
   </li>
 
-<%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+
+<%= render 'form_review' %>
+
+
 <%= link_to "To List", restaurants_path, class: "btn btn-primary" %>
 
 </ul>
