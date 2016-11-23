@@ -1,22 +1,38 @@
-<h1>Restaurant <%= @restaurant.name %></h1>
-
-<p>Category: <%= @restaurant.category %></p>
-<p>Phone: <%= @restaurant.phone_number %></p>
-<p>Address: <%= @restaurant.address %></p>
-
-<ul>
-
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Restaurant "<%= @restaurant.name %>"</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3>About</h3>
+    <p>Category: <%= @restaurant.category %></p>
+    <p>Phone: <%= @restaurant.phone_number %></p>
+    <p>Address: <%= @restaurant.address %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3>Reviews</h3>
     <% @restaurant.reviews.each do |review|%>
-    <li>
-      <b> <%= review.rating %> </b> - <%= review.content %>
-    </li>
-    <% end  %>
-  </li>
-
-
-<%= render 'form_review' %>
-
-
-<%= link_to "To List", restaurants_path, class: "btn btn-primary" %>
-
-</ul>
+    <dl class="dl-horizontal">
+      <dt><%= review.rating %><dt>
+        <dd><%= review.content %></dd>
+      </dl>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+     <h3>Submit your Review</h3>
+     <%= render 'restaurants/form_review' %>
+   </div>
+ </div>
+ <div class="row" style="margin:50px 0px;">
+  <hr>
+  <div class="col-md-6 col-md-offset-3">
+    <div class ="btn btn-default btn-xs">
+      <div class="glyphicon glyphicon-menu-left"><%= link_to "Back", restaurants_path %></div>
+    </div>
+  </div>
+</div>

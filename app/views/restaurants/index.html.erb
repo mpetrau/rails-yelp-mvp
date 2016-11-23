@@ -1,11 +1,20 @@
-<h1>Restaurants</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <h1>Restaurants</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <ul class="list-unstyled">
+        <% @restaurants.each do |rest|  %>
+        <hr>
+        <li>
+          <%= link_to rest.name, restaurant_path(rest) %> (<%= rest.category %>)
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<% @restaurants.each do |rest|  %>
-<ul>
-  <li>
-    <%= link_to rest.name, restaurant_path(rest) %> (<%= rest.category %>)
-  </li>
-</ul>
-<% end %>
 
-<%= link_to "Add new", new_restaurant_path, class: "btn btn-primary" %>
+
